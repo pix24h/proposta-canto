@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta de Desenvolvimento - Plataforma SaaS para Professores de Canto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: -20px;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+        
+        .timeline-item:last-child::before {
+            display: none;
+        }
+        
+        .check-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        @media print {
+            .no-print {
+                display: none;
+            }
+            body {
+                background: white;
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16 px-4 fade-in">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-2">Proposta de Desenvolvimento</h1>
+                    <p class="text-xl text-purple-100">Plataforma SaaS para Professores de Canto</p>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 mt-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <p class="text-purple-200 text-sm mb-1">Desenvolvedor</p>
+                    <p class="font-semibold text-lg">Darley Cândido</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <p class="text-purple-200 text-sm mb-1">Data</p>
+                    <p class="font-semibold text-lg">20 de Novembro, 2025</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <p class="text-purple-200 text-sm mb-1">Investimento Total</p>
+                    <p class="font-semibold text-2xl">R$ 43.400,00</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        
+        <!-- Resumo Executivo -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8 fade-in card-hover">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">Resumo Executivo</h2>
+            </div>
+            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                Desenvolvimento de plataforma SaaS completa voltada para professores de canto e seus alunos, incluindo aplicativos mobile (iOS e Android via PWA) e painel web administrativo. A solução organizará toda a comunicação entre professores e alunos, eliminando a necessidade de usar WhatsApp, email ou links do YouTube dispersos.
+            </p>
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4 text-center">
+                    <p class="text-3xl font-bold text-purple-600 mb-1">480h</p>
+                    <p class="text-sm text-gray-600">Desenvolvimento</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-4 text-center">
+                    <p class="text-3xl font-bold text-blue-600 mb-1">4 meses</p>
+                    <p class="text-sm text-gray-600">Cronograma</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-4 text-center">
+                    <p class="text-3xl font-bold text-green-600 mb-1">3 perfis</p>
+                    <p class="text-sm text-gray-600">Usuários</p>
+                </div>
+                <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-lg p-4 text-center">
+                    <p class="text-3xl font-bold text-orange-600 mb-1">11 módulos</p>
+                    <p class="text-sm text-gray-600">Principais</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stack Tecnológico -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8 fade-in card-hover">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">Stack Tecnológico</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="border-l-4 border-purple-500 pl-4">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Frontend</h3>
+                    <p class="text-gray-600">React.js com PWA (Progressive Web App)</p>
+                </div>
+                <div class="border-l-4 border-blue-500 pl-4">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Backend</h3>
+                    <p class="text-gray-600">Node.js</p>
+                </div>
+                <div class="border-l-4 border-green-500 pl-4">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Banco de Dados</h3>
+                    <p class="text-gray-600">Supabase (PostgreSQL)</p>
+                </div>
+                <div class="border-l-4 border-orange-500 pl-4">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Pagamentos</h3>
+                    <p class="text-gray-600">Stripe</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Funcionalidades Principais -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8 fade-in card-hover">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">Módulos do Sistema</h2>
+            </div>
+            <div class="space-y-4">
+                <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-purple-50 transition">
+                    <div class="w-16 h-16 check-icon rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4 flex-shrink-0">40h</div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Autenticação e Cadastro</h3>
+                        <p class="text-gray-600 text-sm">Sistema completo com e-mail/senha, Google, Apple, verificação e recuperação</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-purple-50 transition">
+                    <div class="w-16 h-16 check-icon rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4 flex-shrink-0">60h</div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Painel Administrativo</h3>
+                        <p class="text-gray-600 text-sm">Dashboard completo com gestão de usuários, biblioteca global, pagamentos e analytics</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-purple-50 transition">
+                    <div class="w-16 h-16 check-icon rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4 flex-shrink-0">50h</div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Biblioteca Global de Exercícios</h3>
+                        <p class="text-gray-600 text-sm">Categorias, tags, upload de áudio/vídeo, sistema de busca e filtros avançados</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-purple-50 transition">
+                    <div class="w-16 h-16 check-icon rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4 flex-shrink-0">80h</div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Painel do Professor</h3>
+                        <p class="text-gray-600 text-sm">Gestão de alunos, biblioteca pessoal, atribuição de exercícios, feedback e relatórios</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-purple-50 transition">
+                    <div class="w-16 h-16 check-icon rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4 flex-shrink-0">55h</div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Painel do Aluno</h3>
+                        <p class="text-gray-600 text-sm">Visualização de exercícios, gravação/upload, histórico e progresso</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-purple-50 transition">
+                    <div class="w-16 h-16 check-icon rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4 flex-shrink-0">50h</div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Sistema de Pagamentos</h3>
+                        <p class="text-gray-600 text-sm">Integração Stripe, assinatura recorrente, período de teste e gestão de cobranças</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-purple-50 transition">
+                    <div class="w-16 h-16 check-icon rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4 flex-shrink-0">40h</div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Sistema de Indicação (Referral)</h3>
+                        <p class="text-gray-600 text-sm">Código único, cálculo de comissões recorrentes de 10% e dashboard de ganhos</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-purple-50 transition">
+                    <div class="w-16 h-16 check-icon rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4 flex-shrink-0">45h</div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Upload e Streaming de Mídia</h3>
+                        <p class="text-gray-600 text-sm">Sistema seguro para áudio/vídeo com compressão, otimização e URLs protegidas</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-purple-50 transition">
+                    <div class="w-16 h-16 check-icon rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4 flex-shrink-0">30h</div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Sistema de Notificações</h3>
+                        <p class="text-gray-600 text-sm">E-mail, in-app e push notifications para todos os eventos importantes</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-purple-50 transition">
+                    <div class="w-16 h-16 check-icon rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4 flex-shrink-0">20h</div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Segurança e Conformidade</h3>
+                        <p class="text-gray-600 text-sm">Criptografia, proteção de rotas, controle de acesso e logs de segurança</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-purple-50 transition">
+                    <div class="w-16 h-16 check-icon rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4 flex-shrink-0">30h</div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Responsividade e PWA</h3>
+                        <p class="text-gray-600 text-sm">Design responsivo completo, PWA configurado e funcionalidade offline</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cronograma -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8 fade-in card-hover">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">Cronograma de Desenvolvimento</h2>
+            </div>
+            <div class="space-y-6 relative">
+                <div class="timeline-item relative pl-16">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold">1</div>
+                    <div class="bg-purple-50 rounded-lg p-4">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">Mês 1 - Fundação (120h)</h3>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li>• Setup do projeto e infraestrutura</li>
+                            <li>• Sistema de autenticação completo</li>
+                            <li>• Estrutura de banco de dados</li>
+                            <li>• Painel administrativo básico</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item relative pl-16">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">2</div>
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">Mês 2 - Core do Produto (120h)</h3>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li>• Biblioteca global completa</li>
+                            <li>• Painel do professor</li>
+                            <li>• Sistema de atribuição de exercícios</li>
+                            <li>• Upload e streaming de mídia</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item relative pl-16">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-bold">3</div>
+                    <div class="bg-green-50 rounded-lg p-4">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">Mês 3 - Experiência do Aluno (120h)</h3>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li>• Painel do aluno completo</li>
+                            <li>• Sistema de gravação e envio</li>
+                            <li>• Sistema de feedback</li>
+                            <li>• Sistema de notificações</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item relative pl-16">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold">4</div>
+                    <div class="bg-orange-50 rounded-lg p-4">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">Mês 4 - Finalização (120h)</h3>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li>• Integração Stripe</li>
+                            <li>• Sistema de referral</li>
+                            <li>• Testes e otimizações</li>
+                            <li>• Preparação para publicação</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item relative pl-16">
+                    <div class="absolute left-0 top-0 w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white font-bold">5</div>
+                    <div class="bg-red-50 rounded-lg p-4">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">Mês 5-6 - Publicação</h3>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li>• Processo Apple Store</li>
+                            <li>• Processo Google Play Store</li>
+                            <li>• Ajustes e lançamento</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investimento -->
+        <section class="bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl shadow-lg p-8 mb-8 text-white fade-in">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold">Investimento</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                    <p class="text-purple-200 text-sm mb-2">Desenvolvimento da Plataforma</p>
+                    <p class="text-3xl font-bold mb-2">R$ 38.400,00</p>
+                    <p class="text-sm text-purple-100">480 horas × R$ 80/hora</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                    <p class="text-purple-200 text-sm mb-2">Publicação nas Lojas</p>
+                    <p class="text-3xl font-bold mb-2">R$ 5.000,00</p>
+                    <p class="text-sm text-purple-100">Apple Store + Google Play</p>
+                </div>
+            </div>
+            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center">
+                <p class="text-purple-100 text-sm mb-2">Investimento Total</p>
+                <p class="text-5xl font-bold">R$ 43.400,00</p>
+            </div>
+        </section>
+
+        <!-- Condições de Pagamento -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8 fade-in card-hover">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">Condições de Pagamento</h2>
+            </div>
+            <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 mb-4">
+                <h3 class="font-bold text-lg text-gray-800 mb-4 flex items-center">
+                    <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm mr-2">Recomendado</span>
+                    Pagamento Parcelado
+                </h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span class="text-gray-700">Parcela 1 - Mês 1</span>
+                        <span class="font-bold text-gray-800">R$ 9.600,00</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span class="text-gray-700">Parcela 2 - Mês 2</span>
+                        <span class="font-bold text-gray-800">R$ 9.600,00</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span class="text-gray-700">Parcela 3 - Mês 3</span>
+                        <span class="font-bold text-gray-800">R$ 9.600,00</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span class="text-gray-700">Parcela 4 - Mês 4</span>
+                        <span class="font-bold text-gray-800">R$ 9.600,00</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-green-100 rounded-lg border-2 border-green-500">
+                        <span class="text-gray-700 font-semibold">Parcela 5 - Publicação</span>
+                        <span class="font-bold text-green-700">R$ 5.000,00</span>
+                    </div>
+                </div>
+            </div>
+            <p class="text-gray-600 text-sm italic">Os pagamentos mensais garantem entregas contínuas e validação em cada etapa do projeto.</p>
+        </section>
+
+        <!-- Diferenciais -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8 fade-in card-hover">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">Diferenciais da Proposta</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="border-2 border-purple-200 rounded-lg p-6 hover:border-purple-400 transition">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Custo-Benefício Excepcional</h3>
+                    <p class="text-gray-600 text-sm">Valor de R$ 80/hora está significativamente abaixo da média de mercado (R$ 120-200/hora) para projetos desta complexidade</p>
+                </div>
+                <div class="border-2 border-blue-200 rounded-lg p-6 hover:border-blue-400 transition">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Stack Moderna e Escalável</h3>
+                    <p class="text-gray-600 text-sm">React, Node.js e Supabase garantem performance, facilidade de manutenção e custos reduzidos de infraestrutura</p>
+                </div>
+                <div class="border-2 border-green-200 rounded-lg p-6 hover:border-green-400 transition">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Experiência Focada no Usuário</h3>
+                    <p class="text-gray-600 text-sm">Interface intuitiva que permite professores montarem a semana rapidamente e alunos enviarem exercícios sem complicação</p>
+                </div>
+                <div class="border-2 border-orange-200 rounded-lg p-6 hover:border-orange-400 transition">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Multiplataforma com PWA</h3>
+                    <p class="text-gray-600 text-sm">Um único código que funciona como app em iOS e Android, além da versão web responsiva</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- O que está incluso -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8 fade-in card-hover">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">O que está Incluso</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="flex items-start">
+                    <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-700">Código-fonte completo do projeto</span>
+                </div>
+                <div class="flex items-start">
+                    <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-700">Documentação técnica básica</span>
+                </div>
+                <div class="flex items-start">
+                    <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-700">30 dias de suporte para bugs críticos</span>
+                </div>
+                <div class="flex items-start">
+                    <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-700">Treinamento para uso do painel admin</span>
+                </div>
+                <div class="flex items-start">
+                    <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-700">Deploy inicial da plataforma</span>
+                </div>
+                <div class="flex items-start">
+                    <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-700">Publicação completa nas lojas de apps</span>
+                </div>
+            </div>
+            <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
+                <p class="text-sm text-gray-700"><strong>Não inclusos:</strong> Hospedagem mensal, domínio, manutenções futuras, novas funcionalidades após entrega, suporte contínuo, marketing digital e taxas anuais das lojas (Apple: $99/ano, Google: $25 única vez).</p>
+            </div>
+        </section>
+
+        <!-- Próximos Passos -->
+        <section class="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl shadow-lg p-8 mb-8 text-white fade-in">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold">Próximos Passos</h2>
+            </div>
+            <div class="space-y-4">
+                <div class="flex items-start bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div class="w-8 h-8 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">1</div>
+                    <div>
+                        <h3 class="font-bold mb-1">Análise da Proposta</h3>
+                        <p class="text-blue-100 text-sm">Revisar escopo detalhado e investimento proposto</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div class="w-8 h-8 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">2</div>
+                    <div>
+                        <h3 class="font-bold mb-1">Reunião de Alinhamento</h3>
+                        <p class="text-blue-100 text-sm">Esclarecer dúvidas e ajustar detalhes necessários</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div class="w-8 h-8 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">3</div>
+                    <div>
+                        <h3 class="font-bold mb-1">Formalização do Acordo</h3>
+                        <p class="text-blue-100 text-sm">Assinatura do contrato de desenvolvimento</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div class="w-8 h-8 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">4</div>
+                    <div>
+                        <h3 class="font-bold mb-1">Início do Projeto</h3>
+                        <p class="text-blue-100 text-sm">Kickoff oficial e primeira entrega em 30 dias</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Considerações Finais -->
+        <section class="bg-white rounded-2xl shadow-lg p-8 mb-8 fade-in card-hover">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800">Considerações Finais</h2>
+            </div>
+            <div class="prose max-w-none">
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Este é um <strong>projeto robusto e completo</strong> que resolverá definitivamente a desorganização atual dos professores de canto, eliminando a necessidade de usar múltiplas ferramentas como WhatsApp, email e links do YouTube dispersos.
+                </p>
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 my-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Com 480 horas de desenvolvimento dedicado, você terá:</h3>
+                    <div class="grid md:grid-cols-2 gap-3">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-purple-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">11 módulos principais funcionais</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-purple-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">3 perfis com experiências personalizadas</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-purple-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Sistema completo de pagamentos</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-purple-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Sistema de indicação com comissões</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-purple-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Upload e streaming profissional</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-purple-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Apps iOS e Android via PWA</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-purple-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Segurança e escalabilidade</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-purple-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-700">Pronto para monetização imediata</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded">
+                    <p class="text-gray-700 leading-relaxed">
+                        <strong class="text-blue-700">O investimento de R$ 43.400,00 parcelado em 5x</strong> representa um valor extremamente competitivo para entregar uma plataforma completa e profissional que pode ser monetizada imediatamente através das assinaturas dos professores.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <script>
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
